@@ -10,9 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_03_025300) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_03_032956) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "check_in"
+    t.date "check_out"
+    t.float "price"
+    t.bigint "pet_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_bookings_on_pet_id"
+    t.index ["service_id"], name: "index_bookings_on_service_id"
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string "breed"
+    t.string "pet_name"
+    t.date "date_of_birth"
+    t.float "weight"
+    t.integer "size"
+    t.text "medical_condition"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.boolean "walking"
+    t.boolean "styling"
+    t.boolean "medication"
+    t.boolean "feeding"
+    t.float "price"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +59,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_03_025300) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "telephone"
+    t.integer "role"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "pets"
+  add_foreign_key "bookings", "services"
+  add_foreign_key "pets", "users"
+  add_foreign_key "services", "users"
 end
