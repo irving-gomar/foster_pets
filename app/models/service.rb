@@ -3,4 +3,7 @@ class Service < ApplicationRecord
 
   #Asociaciones
   has_many :bookings
+
+  # Validaciones
+	validates :price, presence: true
 end
