@@ -80,3 +80,5 @@ group :test do
 end
 
 gem "cloudinary", "~> 1.28"
+
+gem "geocoder", "~> 1.8"
