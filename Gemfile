@@ -82,3 +82,5 @@ end
 gem "cloudinary", "~> 1.28"
 
 gem "geocoder", "~> 1.8"
+
+gem "pg_search", "~> 2.3"
