@@ -1,0 +1,23 @@
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.input :pet_name %>
+  
+  <%= f.input :breed, collection: ["Dog", "Cat", "Turtle", "Bunny"],
+                       prompt: "Select Breed", input_html: { class: "breed-input" } %>
+  
+  <%= f.input :date_of_birth,
+              as: :date,
+              start_year: Date.today.year - 40,
+              end_year: Date.today.year,
+              required: true,
+              label: "Date of Birth",
+              input_html: { class: "bday-input" },
+              wrapper_html: { class: "bday-input-container" } %>
+  
+  <%= f.input :weight, input_html: { class: "weight-input", placeholder: "kg" } %>
+  
+  <%= f.input :size, input_html: { class: "size-input", placeholder: "cm" } %>
+  
+  <%= f.input :medical_condition %>
+  
+  <%= f.button :submit %>
+<% end %>

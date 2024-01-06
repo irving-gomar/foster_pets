@@ -1,26 +1,21 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
-    @users = User.all
   end
 
   def show
     @pet = Pet.find(params[:id])
-    @users = User.all
   end
 
   def new
     @pet = Pet.new
-    @users = User.all
   end
 
   def create
     @pet = Pet.new(pet_params)
-    if @pet.save
-      redirect_to @pet
-    else
-      render :new
-    end
+    @pet.user = current_user
+    @pet.save!
+    redirect_to @pet
   end
 
   def destroy
@@ -34,7 +29,6 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find(params[:id])
-    @users = User.all
   end
 
   def update
@@ -49,6 +43,6 @@ class PetsController < ApplicationController
   private 
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :species, :user_id)
+    params.require(:pet).permit(:pet_name, :date_of_birth, :breed, :weight, :size, :medical_condition, :user_id)
   end
 end
