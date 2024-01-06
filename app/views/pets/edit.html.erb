@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Edit Pet</h2>
+
+  <%= simple_form_for(@pet) do |f| %>
+    <div class="form-group">
+      <%= f.input :name, class: 'form-control', placeholder: 'Name' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :breed, collection: ["Dog", "Cat", "Turtle", "Bunny"], prompt: "Select Breed", class: 'form-control breed-input' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 40, end_year: Date.today.year, required: true, class: 'form-control bday-input' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :weight, class: 'form-control weight-input', placeholder: "Weight (kg)" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :size, class: 'form-control size-input', placeholder: "Size (cm)" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :description, class: 'form-control description-input', placeholder: "Tell us all about your pet! What do they like to play? Do they have any eating preferences? Any medical conditions?" %>
+    </div>
+
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+
+  <%= link_to 'Back', pets_path, class: 'btn btn-secondary mt-3' %>
+</div>

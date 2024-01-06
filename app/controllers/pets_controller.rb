@@ -15,16 +15,13 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.user = current_user
     @pet.save!
-    redirect_to @pet
+    redirect_to pets_path
   end
 
   def destroy
     @pet = Pet.find(params[:id])
-    if @pet.destroy
-      redirect_to pets_path
-    else
-      render :show
-    end
+    @pet.destroy!
+    redirect_to pets_path
   end
 
   def edit
@@ -43,6 +40,6 @@ class PetsController < ApplicationController
   private 
 
   def pet_params
-    params.require(:pet).permit(:pet_name, :date_of_birth, :breed, :weight, :size, :description, :user_id, photos: [])
+    params.require(:pet).permit(:name, :date_of_birth, :breed, :weight, :size, :description, :user_id, photos: [])
   end
 end
