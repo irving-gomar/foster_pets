@@ -9,6 +9,6 @@ class Pet < ApplicationRecord
   has_many :services, through: :bookings
 
   # Validaciones
-	validates :breed, :pet_name, :description, length: { minimum: 3 }
-  validates :breed, :pet_name, :description, :date_of_birth, :weight, :size, presence:true
+	validates :breed, :name, :description, length: { minimum: 3 }
+  validates :breed, :name, :description, :date_of_birth, :weight, :size, presence:true
 end

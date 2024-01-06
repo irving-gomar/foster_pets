@@ -1,5 +1,5 @@
 <%= simple_form_for(@pet) do |f| %>
-  <%= f.input :pet_name %>
+  <%= f.input :name %>
   
   <%= f.input :breed, collection: ["Dog", "Cat", "Turtle", "Bunny"],
                        prompt: "Select Breed", input_html: { class: "breed-input" } %>
