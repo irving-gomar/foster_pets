@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <%= render 'shared/carousel', images: @pet.photos %>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h2 class="card-title"><%= @pet.name %></h2>
+          <p class="card-text">
+            <strong>Breed:</strong> <%= @pet.breed %><br>
+            <strong>Description:</strong> <%= @pet.description %><br>
+            <strong>Date of Birth:</strong> <%= @pet.date_of_birth %><br>
+            <strong>Weight:</strong> <%= @pet.weight %> kg<br>
+            <strong>Size:</strong> <%= @pet.size %> cm
+          </p>
+
+          <%= link_to edit_pet_path(@pet), class: 'btn btn-primary mr-2' do %>
+            Edit
+          <% end %>
+
+          <!-- Delete link -->
+          <%= link_to pet_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+            Delete
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
