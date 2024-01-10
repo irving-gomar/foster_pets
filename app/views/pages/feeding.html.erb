@@ -1,0 +1,8 @@
+<h1>This page describes the feeding services at FosterPets</h1>
+<%= form_for(@user) do |f| %>
+
+
+<%= f.collection_check_boxes(:writing_type_ids, WritingType.all, :id, :name) %>
+
+  <%= f.submit 'submit' %>
+<% end %>

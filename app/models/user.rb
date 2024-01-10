@@ -17,9 +17,9 @@ class User < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :global_search,
-  against: [ :name, :description, :address ],
+  against: [ :address],
   associated_against: {
-    categories: [ :name]
+    services: [ :walking, :styling, :feeding, :medication ]
   },
   using: {
     tsearch: { prefix: true }
