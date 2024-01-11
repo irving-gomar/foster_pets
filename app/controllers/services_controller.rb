@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   def index
-    @service = Service.all
+    @services = Service.all
   end
 
   def show
@@ -12,10 +12,10 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.new(pet_params)
+    @service = Service.new(service_params)
     @service.user = current_user
     @service.save!
-    redirect_to pets_path
+    redirect_to services_path
   end
 
   def destroy
@@ -40,6 +40,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :date_of_birth, :breed, :weight, :size, :description, :user_id, photos: [])
+    params.require(:service).permit(:activity, :price, :description, :user_id )
   end
 end

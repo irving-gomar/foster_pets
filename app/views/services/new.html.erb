@@ -1,10 +1,6 @@
-<h1>Services#new</h1>
-<p>Find me in app/views/services/new.html.erb</p>
-
 <%= simple_form_for(@service) do |f| %>
-  <%= f.input :pet_name %>
-  <%= f.check_box :walking %>
-  <%= f.check_box :styling %>
-  <%= f.check_box :medication %>
-  <%= f.check_box :feeding %>
+  <%= f.input :activity, :collection => %w[walking styling medication feeding babysitting] %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
 <% end %>

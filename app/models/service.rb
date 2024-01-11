@@ -5,5 +5,5 @@ class Service < ApplicationRecord
   has_many :bookings
 
   # Validaciones
-	validates :price, presence: true
+	validates :price, :activity, presence: true
 end
