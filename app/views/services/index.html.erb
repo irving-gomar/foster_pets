@@ -1,7 +1,12 @@
 <% @services.each do |service| %>
-<%= service.id %>
-<%= service.activity %>
-<%= service.price %>
-<%= service.description %>
-<%= service.user_id %>
+
+<div>
+  <%= service.id %>
+  <%= service.activity %>
+  <%= service.price %>
+  <%= service.description %>
+  <%= service.user_id %>
+  <%= link_to "Edit", edit_service_path(service.id) %>
+  <%= link_to "Delete", service_path(service.id), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn" %>
+</div>
 <% end %>
