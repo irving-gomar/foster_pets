@@ -1,0 +1,31 @@
+<div class="container text-center mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mb-4">
+        <%= link_to new_pet_path, class: "btn btn-primary rounded-pill px-3 py-2" do %>
+          Register a new pet
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <% @pets.each do |pet| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <%= link_to pet_path(pet), class: "text-body text-decoration-none" do %>
+              <div class="embed-responsive embed-responsive-1by1">
+                <%= image_tag(pet.photos[0], class: "embed-responsive-item img-fluid") if pet.photos.present? %>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><%= pet.name %></h5>
+                <p class="card-text"><%= truncate(pet.description, length: 50) %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
