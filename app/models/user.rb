@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :pets
   has_many :bookings, through: :services
   has_many :bookings, through: :pets
+  has_one_attached :photo
 
   # Geocoder
   geocoded_by :address
