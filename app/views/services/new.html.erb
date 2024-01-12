@@ -1,4 +1,6 @@
-<%= simple_form_for(@service) do |f| %>
+<%= link_to "Back", services_path, class: 'btn btn-info' %>
+
+<%= simple_form_for(@service) do |f|%>
   <%= f.input :activity, :collection => %w["Walking", "Styling", "Medication", "Feeding" "Babysitting"] %>
   <%= f.input :price %>
   <%= f.input :description %>
