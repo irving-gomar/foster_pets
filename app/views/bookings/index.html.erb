@@ -1,0 +1,14 @@
+<% @bookings.each do |booking| %>
+
+<div>
+  <%= booking.check_in %>
+  <%= booking.check_out %>
+  <%= booking.price %>
+  <%# hacer al pet y al servicio una cajita con sus respectivos parametros  %>
+  <%= booking.pet.name %>
+  <%= booking.service.activity %>
+  
+  <%# <%= link_to "Edit", edit_service_booking_path(booking.id), class: 'btn btn-info' %>
+  <%# <%= link_to "Delete", booking_path(booking.id), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %> %>
+</div>
+<% end %>

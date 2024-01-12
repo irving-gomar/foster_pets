@@ -1,0 +1,17 @@
+<%= simple_form_for([@service, @booking]) do |f| %>
+  <%= f.input :check_in, as: :date %>
+  <%= f.input :check_out, as: :date %>
+
+  <%= f.input :pet_id, collection: @pets %>
+
+
+  <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  
+  <%# <%= f.input :weight, input_html: { class: "weight-input", placeholder: "kg" } %>
+  
+  <%# <%= f.input :size, input_html: { class: "size-input", placeholder: "cm" } %>
+  
+  <%# <%= f.input :description, input_html: { class: "description-input", placeholder: "Tell us all about your pet! What do they like to play? Do they have any eating preferences? Any medical conditions?" }  %> 
+  
+  <%= f.button :submit %>
+<% end %>
