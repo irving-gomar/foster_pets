@@ -14,10 +14,13 @@
             <%= link_to "Cómo funciona", "/#funciona", class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "Servicios", services_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Mis mascotas", pets_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Reservas", "#", class: "nav-link" %>
+            <%= link_to "Reservas", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

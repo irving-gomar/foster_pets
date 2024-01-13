@@ -51,6 +51,8 @@
       <%= link_to "Delete", service_path(service.id), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
     </div>
   <% end %>
+
+
 <% @services.each do |service| %>
 
 <div>
@@ -64,5 +66,6 @@
   
   <%= link_to 'Create New booking', new_service_booking_path(service.id), class: 'btn btn-primary' %>
 </div>
+<% end %>
 
 <%= link_to 'Solicita Un Servicio', new_service_path, class: 'btn btn-primary' %>
