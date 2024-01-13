@@ -1,27 +1,49 @@
-<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Buscar
-    </button>
-  </div>
-</form>
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=image_path 'fosterpet.png'%>">
   <div class="container">
-    <h1><strong> Hazlos parte de tu familia!</strong></h1>
-    <p>Regala grandes momentos</p>
+    <h1><strong> Bienvenido al segundo hogar de tus macotas!</strong></h1>
+    <p>En FosterPets nos importa el bienestar y la comodidad de tus mascotas</p>
     <a class="btn btn-flat" href="#">Conócenos</a>
   </div>
 </div>
-<h4 class="text-warning mt-3"></h4>
+
+<div class="card-info d-flex justify-content-center m5">
+  <h4 id="funciona">¿Cómo funciona?</h4>
+</div>
 <div class="row">
-<hr>
-<%# <% @services.each do |service| %>
-  <div class="col-4">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-    <%#   <%= service.name %>
+  <div class="col-6">
+    <div class="card-info-user" >
+      <h5>
+        <ul>
+          <li>Registra a tu mascota</li>
+          <p>Cuétanos lo que tengamos que saber de tu mascota.</p>
+          <li>Elige a un cuidador</li>
+          <p>Revisa a los cuidadores disponibles y elige el que te de más confianza.</p>
+          <li>Selecciona los servicios</li>
+          <p>¿Quieres que solamente cuidemos a tu mascota? O te gustaria que le demos un baño o algun medicamento.</p>
+          <li>Reserva</li>
+          <p>Ya que te has decidido por un cuidador y servicios, es hora de reservar el o los días que nos necesitas. .</p>
+        </ul>
+      </h5>
     </div>
   </div>
-<%# <% end %> 
+  <div class="perritos col-6">
+    <%= image_tag("cuidador_de_perros.jpg") %>
+  </div>
 </div>
+
+
+
+
+
+<%# <% <hr> %>
+<%# <% <% @services.each do |service|
+  <%# <div class="col-4"> %>
+   <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+    <%= service.name %>
+   <%# </div> %>
+  <%# </div>
+   <% end %>
+
+        <%# <div class="d-flex justify-content-center"> %>
+          <%# <%= link_to 'Quiero trabajar', '#', class: 'btn btn-sm btn-flat float-end m-3 me-5' %>
+          <%# <%= link_to 'Quiero un servicio', '#', class: 'btn btn-sm btn-flat float-end m-3' %>
