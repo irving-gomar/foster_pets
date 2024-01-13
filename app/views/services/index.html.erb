@@ -1,29 +1,3 @@
-<div class= 'd-flex justify-content-evenly mt-5'>
-  <div class='services bg-white shadow'>
-    <%= image_tag("feeding.png") %>
-    <div>Alimentación para tu mascota!</div>
-  </div>
-  <div class='services bg-white shadow'>
-    <%= image_tag("medication.png") %>
-    <div>Medicamentos para tu mascota!</div>
-  </div>
-  <div class='services bg-white shadow'>
-    <%= image_tag("sitting.png") %>
-    <div>Guardería para tu mascota!</div>
-  </div>
-  <div class='services bg-white shadow'>
-    <%= image_tag("styling.png") %>
-    <div>Baño y corte para tu mascota!</div>
-  </div>
-  <div class='services bg-white shadow'>
-    <%= image_tag("walking.png") %>
-    <div>Paseos para tu mascota!</div>
-  </div>
-</div>
-
-
-</div>
-
 <div class="container" style="">
   <% @services.each do |service| %>
     <div class="card" style="width=300px; height:100%;">
@@ -33,33 +7,33 @@
           <%= image_tag("walking.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
         <% end %>
 
-      <div class="card" style="width=300px; height:100%;">
-        <div class="img">
-          <% case service.activity %>
-          <% when "Styling" %>
-            <%= image_tag("styling.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
-          <% end %>
+    <div class="card" style="width=300px; height:100%;">
+      <div class="img">
+        <% case service.activity %>
+        <% when "Styling" %>
+          <%= image_tag("styling.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+        <% end %>
 
-<     div class="card" style="width=300px; height:100%;">
-        <div class="img">
-          <% case service.activity %>
-          <% when "Medication" %>
-            <%= image_tag("medication.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
-          <% end %>
+    <div class="card" style="width=300px; height:100%;">
+      <div class="img">
+        <% case service.activity %>
+        <% when "Medication" %>
+          <%= image_tag("medication.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+        <% end %>
 
-      div class="card" style="width=300px; height:100%;">
-        <div class="img">
-          <% case service.activity %>
-          <% when "Feeding" %>
-            <%= image_tag("feeding.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
-          <% end %>
+    <div class="card" style="width=300px; height:100%;">
+      <div class="img">
+        <% case service.activity %>
+        <% when "Feeding" %>
+          <%= image_tag("feeding.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+        <% end %>
 
-      div class="card" style="width=300px; height:100%;">
-        <div class="img">
-          <% case service.activity %>
-          <% when "Babysitting" %>
-            <%= image_tag("sitting.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
-          <% end %>
+    <div class="card" style="width=300px; height:100%;">
+      <div class="img">
+        <% case service.activity %>
+        <% when "Babysitting" %>
+          <%= image_tag("sitting.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+        <% end %>
 
       </div>
       <div class="card-body">
