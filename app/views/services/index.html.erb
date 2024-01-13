@@ -1,14 +1,82 @@
-<% @services.each do |service| %>
-
-<div>
-  <%= service.id %>
-  <%= service.activity %>
-  <%= service.price %>
-  <%= service.description %>
-  <%= service.user_id %>
-  <%= link_to "Edit", edit_service_path(service.id), class: 'btn btn-info' %>
-  <%= link_to "Delete", service_path(service.id), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+<div class= 'd-flex justify-content-evenly mt-5'>
+  <div class='services bg-white shadow'>
+    <%= image_tag("feeding.png") %>
+    <div>Alimentación para tu mascota!</div>
+  </div>
+  <div class='services bg-white shadow'>
+    <%= image_tag("medication.png") %>
+    <div>Medicamentos para tu mascota!</div>
+  </div>
+  <div class='services bg-white shadow'>
+    <%= image_tag("sitting.png") %>
+    <div>Guardería para tu mascota!</div>
+  </div>
+  <div class='services bg-white shadow'>
+    <%= image_tag("styling.png") %>
+    <div>Baño y corte para tu mascota!</div>
+  </div>
+  <div class='services bg-white shadow'>
+    <%= image_tag("walking.png") %>
+    <div>Paseos para tu mascota!</div>
+  </div>
 </div>
-<% end %>
 
-<%= link_to 'Create New Service', new_service_path, class: 'btn btn-primary' %>
+
+</div>
+
+<div class="container" style="">
+  <% @services.each do |service| %>
+    <div class="card" style="width=300px; height:100%;">
+      <div class="img">
+        <% case service.activity %>
+        <% when "Walking" %>
+          <%= image_tag("walking.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+        <% end %>
+
+      <div class="card" style="width=300px; height:100%;">
+        <div class="img">
+          <% case service.activity %>
+          <% when "Styling" %>
+            <%= image_tag("styling.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+          <% end %>
+
+<     div class="card" style="width=300px; height:100%;">
+        <div class="img">
+          <% case service.activity %>
+          <% when "Medication" %>
+            <%= image_tag("medication.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+          <% end %>
+
+      div class="card" style="width=300px; height:100%;">
+        <div class="img">
+          <% case service.activity %>
+          <% when "Feeding" %>
+            <%= image_tag("feeding.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+          <% end %>
+
+      div class="card" style="width=300px; height:100%;">
+        <div class="img">
+          <% case service.activity %>
+          <% when "Babysitting" %>
+            <%= image_tag("sitting.png", style: "object-fit: cover; aspect-ratio: 1/1; width: 300px; height:300px")%>
+          <% end %>
+
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= service.activity %>
+        </h5>
+
+        <h5 class="card-title">
+          <%= service.price %>
+        </h5>
+        <p class="card-text">
+          <%= truncate(service.description, length: 50) %>
+        </p>
+      <%= link_to "Edit", edit_service_path(service.id), class: 'btn btn-info' %>
+      <%= link_to "Delete", service_path(service.id), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Solicita Un Servicio', new_service_path, class: 'btn btn-primary' %>
