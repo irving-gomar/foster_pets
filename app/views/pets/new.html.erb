@@ -1,25 +1,48 @@
-<%= simple_form_for(@pet) do |f| %>
-  <%= f.input :name %>
-  
-  <%= f.input :breed, collection: ["Dog", "Cat", "Turtle", "Bunny"],
-                       prompt: "Select Breed", input_html: { class: "breed-input" } %>
-  
-  <%= f.input :date_of_birth,
-              as: :date,
-              start_year: Date.today.year - 40,
-              end_year: Date.today.year,
-              required: true,
-              label: "Date of Birth",
-              input_html: { class: "bday-input" },
-              wrapper_html: { class: "bday-input-container" } %>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="container main-box p-4 m-4 ">
+    <%= simple_form_for(@pet) do |f| %>
+    <div class="row">
+      <div class="col-md">
+        <%= f.input :name %>
+      </div>
+      <div class="col-md">
+        <%= f.input :breed, collection: ["Perro", "Gato", "Tortuga", "Conejo", "Pingüino", "Otro"], prompt: "Select Breed", input_html: { class: "breed-input" } %>
+      </div>
+    </div>
 
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  
-  <%= f.input :weight, input_html: { class: "weight-input", placeholder: "kg" } %>
-  
-  <%= f.input :size, input_html: { class: "size-input", placeholder: "cm" } %>
-  
-  <%= f.input :description, input_html: { class: "description-input", placeholder: "Tell us all about your pet! What do they like to play? Do they have any eating preferences? Any medical conditions?" }  %>
-  
-  <%= f.button :submit %>
-<% end %>
+    <div class="row">
+      <div class="col-md">
+        <%= f.input :date_of_birth,
+                    as: :date,
+                    start_year: Date.today.year - 40,
+                    end_year: Date.today.year, discard_day: true,
+                    required: true,
+                    label: "Date of Birth",
+                    input_html: { class: "bday-input" },
+                    wrapper_html: { class: "bday-input-container" } %> 
+      </div>
+      <div class="col-md">
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md">
+        <%= f.input :weight, input_html: { class: "weight-input", placeholder: "kg" } %>
+      </div>
+      <div class="col-md">
+        <%= f.input :size, input_html: { class: "size-input", placeholder: "cm" } %>
+      </div>
+    </div>
+      
+    <%= f.input :description, input_html: { class: "description-input", placeholder: "Tell us all about your pet! What do they like to play? Do they have any eating preferences? Any medical conditions?" }  %>
+    
+    <div class="text-center">
+      <%= f.button :submit, class: 'btn btn-flat mt-3' %>
+    </div>
+    <% end %>
+
+    <%= link_to 'Atras', pets_path, class: 'btn btn-info mt-3'%>
+
+  </div>
+</div>

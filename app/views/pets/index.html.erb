@@ -1,31 +1,39 @@
-<div class="container text-center mt-4">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="mb-4">
-        <%= link_to new_pet_path, class: "btn btn-primary rounded-pill px-3 py-2" do %>
-          Register a new pet
+<%# <div style="background-color: #FAE7BF"> %>
+  <div class="container text-center mt-4">
+    <div class="p-3">
+      <h1>Mis mascotas</h1>
+      <hr class="solid">
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <% @pets.each do |pet| %>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card" style="border-radius: 20px">
+              <%= link_to pet_path(pet), class: "text-body text-decoration-none" do %>
+                <div class="embed-responsive text-center" style="width: 100%; height: 100%; overflow: hidden; margin: auto">
+                  <%= image_tag(pet.photos[0], class: "embed-responsive-item img-fluid p-2", style: "border-radius: 20px; object-fit:cover; aspect-ratio: 1/1") if pet.photos.present?%>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><%= pet.name %></h5>
+                  <p class="card-text"><%= truncate(pet.description, length: 50) %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
-  </div>
 
-  <div class="container">
+    
     <div class="row">
-      <% @pets.each do |pet| %>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <%= link_to pet_path(pet), class: "text-body text-decoration-none" do %>
-              <div class="embed-responsive embed-responsive-1by1">
-                <%= image_tag(pet.photos[0], class: "embed-responsive-item img-fluid") if pet.photos.present? %>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><%= pet.name %></h5>
-                <p class="card-text"><%= truncate(pet.description, length: 50) %></p>
-              </div>
-            <% end %>
-          </div>
+      <div class="col-md-12">
+        <div class="mb-4">
+          <%= link_to new_pet_path, class: "btn btn-flat" do %>
+            Registrar mascota
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
+<%# </div> %>

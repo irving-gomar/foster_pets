@@ -10,6 +10,5 @@ class Pet < ApplicationRecord
 
   # Validaciones
 	validates :breed, :name, length: { minimum: 2 }
-  validates :description, length: { minimum: 50 }
-  validates :breed, :name, :description, :date_of_birth, :weight, :size, presence:true
+  validates :breed, :name, :description, :date_of_birth, :weight, :size, :photos, presence:true
 end

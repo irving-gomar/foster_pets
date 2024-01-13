@@ -1,37 +1,48 @@
-<div class="container">
-  <h2>Edit Pet</h2>
-
-  <%= simple_form_for(@pet) do |f| %>
-    <div class="form-group">
-      <%= f.input :name, class: 'form-control', placeholder: 'Name' %>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="container main-box p-4 m-4 ">
+    <%= simple_form_for(@pet) do |f| %>
+    <div class="row">
+      <div class="col-md">
+        <%= f.input :name %>
+      </div>
+      <div class="col-md">
+        <%= f.input :breed, collection: ["Perro", "Gato", "Tortuga", "Conejo", "Pingüino", "Otro"], prompt: "Select Breed", input_html: { class: "breed-input" } %>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= f.input :breed, collection: ["Dog", "Cat", "Turtle", "Bunny"], prompt: "Select Breed", class: 'form-control breed-input' %>
+    <div class="row">
+      <div class="col-md">
+        <%= f.input :date_of_birth,
+                    as: :date,
+                    start_year: Date.today.year - 40,
+                    end_year: Date.today.year, discard_day: true,
+                    required: true,
+                    label: "Date of Birth",
+                    input_html: { class: "bday-input" },
+                    wrapper_html: { class: "bday-input-container" } %> 
+      </div>
+      <div class="col-md">
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 40, end_year: Date.today.year, required: true, class: 'form-control bday-input' %>
+    <div class="row">
+      <div class="col-md">
+        <%= f.input :weight, input_html: { class: "weight-input", placeholder: "kg" } %>
+      </div>
+      <div class="col-md">
+        <%= f.input :size, input_html: { class: "size-input", placeholder: "cm" } %>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, class: 'form-control' %>
+      
+    <%= f.input :description, input_html: { class: "description-input", placeholder: "Tell us all about your pet! What do they like to play? Do they have any eating preferences? Any medical conditions?" }  %>
+    
+    <div class="text-center">
+      <%= f.button :submit, class: 'btn btn-flat mt-3' %>
     </div>
+    <% end %>
 
-    <div class="form-group">
-      <%= f.input :weight, class: 'form-control weight-input', placeholder: "Weight (kg)" %>
-    </div>
+    <%= link_to 'Atras', pets_path, class: 'btn btn-info mt-3'%>
 
-    <div class="form-group">
-      <%= f.input :size, class: 'form-control size-input', placeholder: "Size (cm)" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.input :description, class: 'form-control description-input', placeholder: "Tell us all about your pet! What do they like to play? Do they have any eating preferences? Any medical conditions?" %>
-    </div>
-
-    <%= f.button :submit, class: 'btn btn-primary' %>
-  <% end %>
-
-  <%= link_to 'Back', pets_path, class: 'btn btn-secondary mt-3' %>
+  </div>
 </div>
